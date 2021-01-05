@@ -57,7 +57,7 @@ class DishDetail extends Component {
       <div className="row">
         {this.renderDish(this.props.dish)}
 
-        <div className="col-12 col-md-5 m-2">
+        <div className="col-12 col-md-5 mr-0">
           {this.renderComments(this.props.dish)}
         </div>
       </div>
