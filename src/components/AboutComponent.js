@@ -14,10 +14,10 @@ function About(props) {
   const renderLeaders = props.leaders.map((leader) => {
     return (
       <Media>
-        <Media left class="mr-4">
+        <Media left className="mr-4">
           <Media object src={leader.image} alt="leader image" />
         </Media>
-        <Media body class="mb-3">
+        <Media body className="mb-3">
           <Media heading>
             <h5>{leader.name}</h5>
           </Media>
