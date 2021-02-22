@@ -7,7 +7,7 @@ import Footer from "./FooterComponent";
 import DishDetail from "./DishDetailComponent";
 import About from "./AboutComponent";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
-import { connect, Connect } from "react-redux";
+import { connect } from "react-redux";
 
 const mapStateToProps = (state) => {
   return {
