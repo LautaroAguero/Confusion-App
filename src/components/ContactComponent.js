@@ -206,7 +206,7 @@ class Contact extends Component {
                 </Col>
               </row>
               <row className="form-group">
-                <Col md={{ size: 6, offset: 2 }}>
+                <Col className="mt-2 mb-2" md={{ size: 6 }}>
                   <div className="form-check">
                     <Label check>
                       <Control.checkbox
@@ -218,7 +218,7 @@ class Contact extends Component {
                     </Label>
                   </div>
                 </Col>
-                <Col md={{ size: 3, offset: 1 }}>
+                <Col className="mt-3 mb-2" md={{ size: 3 }}>
                   <Control.select model=".contactType" name="contactType">
                     <option>Tel.</option>
                     <option>Email</option>
@@ -226,7 +226,7 @@ class Contact extends Component {
                 </Col>
               </row>
               <row className="form-group">
-                <Label htmlFor="message" md={2}>
+                <Label htmlFor="message" md={4}>
                   Your feedback
                 </Label>
                 <Col md={10}>
@@ -240,8 +240,8 @@ class Contact extends Component {
                 </Col>
               </row>
               <row className="form-group">
-                <Col md={{ size: 10, offset: 2 }}>
-                  <Button type="submit" color="primary">
+                <Col md={{ size: 10, offset: 0 }}>
+                  <Button className="mt-3" type="submit" color="primary">
                     Send Feedback
                   </Button>
                 </Col>
