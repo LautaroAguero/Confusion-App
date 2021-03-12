@@ -16,6 +16,7 @@ import {
 import { Link } from "react-router-dom";
 import { Component } from "react";
 import { Control, Errors, LocalForm } from "react-redux-form";
+import { Loading } from "./LoadingComponent";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -76,14 +77,14 @@ class CommentForm extends Component {
                 </Col>
               </row>
               <row className="form-group">
-                <Label htmlFor="name" md={3}>
+                <Label htmlFor="author" md={3}>
                   Your Name
                 </Label>
                 <Col md={10}>
                   <Control.text
-                    model=".name"
-                    id="name"
-                    name="name"
+                    model=".author"
+                    id="author"
+                    name="author"
                     placeholder="Your Name"
                     className="form-control"
                     validators={{
@@ -94,7 +95,7 @@ class CommentForm extends Component {
                   />
                   <Errors
                     className="text-danger"
-                    model=".name"
+                    model=".author"
                     show="touched"
                     messages={{
                       required: "Required. ",
@@ -173,7 +174,23 @@ function RenderComments({ comments, addComment, dishId }) {
 }
 
 const DishDetail = (props) => {
-  if (props.dish != null) {
+  if (props.isLoading) {
+    return (
+      <div className="container">
+        <div className="row">
+          <Loading />
+        </div>
+      </div>
+    );
+  } else if (props.errMess) {
+    return (
+      <div className="container">
+        <div className="row">
+          <h4>{props.errMess}</h4>
+        </div>
+      </div>
+    );
+  } else if (props.dish != null) {
     return (
       <div class="container">
         <div className="row">
