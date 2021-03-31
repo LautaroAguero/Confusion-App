@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -9,27 +8,50 @@ import {
   Media,
 } from "reactstrap";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../shared/baseUrl";
+import { Loading } from "./LoadingComponent";
+
+function RenderLeader({ leader }) {
+  return (
+    <Media>
+      <img className="mr-4" src={baseUrl + leader.image} alt="img" />
+      <div classname="media-body">
+        <h5 className="mt-0 mb-1">{leader.name}</h5>
+        <p className="mb-4">{leader.description}</p>
+      </div>
+    </Media>
+  );
+}
 
 function About(props) {
-  const renderLeaders = props.leaders.map((leader) => {
-    return (
-      <Media>
-        <Media left className="mr-4">
-          <Media object src={leader.image} alt="leader image" />
-        </Media>
-        <Media body className="mb-3">
-          <Media heading>
-            <h5>{leader.name}</h5>
-          </Media>
-          <Media heading>
-            <h6>{leader.designation}</h6>
-          </Media>
-          {leader.description}
-        </Media>
-      </Media>
-    );
-  });
-
+  const leaders = () => {
+    if (props.leaders.isLoading) {
+      return (
+        <div className="container">
+          <div className="row">
+            <Loading />
+          </div>
+        </div>
+      );
+    } else if (props.leaders.errMess) {
+      return (
+        <div className="container">
+          <div className="row">
+            <h4>{props.leaders.errMess}</h4>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <ul className="list-unstyled">
+          {props.leaders &&
+            props.leaders.leaders.map((leader) => {
+              return <RenderLeader leader={leader} />;
+            })}
+        </ul>
+      );
+    }
+  };
   return (
     <div className="container">
       <div className="row">
@@ -105,9 +127,7 @@ function About(props) {
         <div className="col-12">
           <h2>Corporate Leadership</h2>
         </div>
-        <div className="col-12">
-          <Media list>{renderLeaders}</Media>
-        </div>
+        <div className="col-12">{leaders()}</div>
       </div>
     </div>
   );

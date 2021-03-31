@@ -1,7 +1,14 @@
 import React, { Component } from "react";
-import { Breadcrumb, BreadcrumbItem, Button, Label, Col } from "reactstrap";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  Button,
+  Label,
+  Col,
+  Row,
+} from "reactstrap";
 import { Link } from "react-router-dom";
-import { Control, Form, Errors, actions } from "react-redux-form";
+import { Control, Form, Errors } from "react-redux-form";
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -93,7 +100,7 @@ class Contact extends Component {
               model="feedback"
               onSubmit={(values) => this.handleSubmit(values)}
             >
-              <row className="form-group">
+              <Row className="form-group">
                 <Label htmlFor="firstname" md={2}>
                   First Name
                 </Label>
@@ -121,8 +128,8 @@ class Contact extends Component {
                     }}
                   />
                 </Col>
-              </row>
-              <row className="form-group">
+              </Row>
+              <Row className="form-group">
                 <Label htmlFor="lastname" md={2}>
                   Last Name
                 </Label>
@@ -150,8 +157,8 @@ class Contact extends Component {
                     }}
                   />
                 </Col>
-              </row>
-              <row className="form-group">
+              </Row>
+              <Row className="form-group">
                 <Label htmlFor="telnum" md={2}>
                   Contact tel.
                 </Label>
@@ -181,8 +188,8 @@ class Contact extends Component {
                     }}
                   />
                 </Col>
-              </row>
-              <row className="form-group">
+              </Row>
+              <Row className="form-group">
                 <Label htmlFor="email" md={2}>
                   Email
                 </Label>
@@ -208,8 +215,8 @@ class Contact extends Component {
                     }}
                   />
                 </Col>
-              </row>
-              <row className="form-group">
+              </Row>
+              <Row className="form-group">
                 <Col className="mt-2 mb-2" md={{ size: 6 }}>
                   <div className="form-check">
                     <Label check>
@@ -228,8 +235,8 @@ class Contact extends Component {
                     <option>Email</option>
                   </Control.select>
                 </Col>
-              </row>
-              <row className="form-group">
+              </Row>
+              <Row className="form-group">
                 <Label htmlFor="message" md={4}>
                   Your feedback
                 </Label>
@@ -242,14 +249,14 @@ class Contact extends Component {
                     className="form-control"
                   />
                 </Col>
-              </row>
-              <row className="form-group">
+              </Row>
+              <Row className="form-group">
                 <Col md={{ size: 10, offset: 0 }}>
                   <Button className="mt-3" type="submit" color="primary">
                     Send Feedback
                   </Button>
                 </Col>
-              </row>
+              </Row>
             </Form>
           </div>
         </div>
