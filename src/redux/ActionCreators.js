@@ -218,6 +218,7 @@ export const postFeedback = (
     firstname: firstname,
     lastname: lastname,
     telnum: telnum,
+    email: email,
     agree: agree,
     contactType: contactType,
     message: message,
