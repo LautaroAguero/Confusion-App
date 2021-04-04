@@ -10,6 +10,7 @@ import {
 import { Link } from "react-router-dom";
 import { baseUrl } from "../shared/baseUrl";
 import { Loading } from "./LoadingComponent";
+import { Fade, Stagger } from "react-animation-components";
 
 function RenderLeader({ leader }) {
   return (
@@ -43,12 +44,18 @@ function About(props) {
       );
     } else {
       return (
-        <ul className="list-unstyled">
-          {props.leaders &&
-            props.leaders.leaders.map((leader) => {
-              return <RenderLeader leader={leader} />;
+        <Stagger in>
+          <ul className="list-unstyled">
+            {props.leaders.leaders.map((leader) => {
+              return (
+                <Fade in>
+                  {" "}
+                  <RenderLeader leader={leader} />{" "}
+                </Fade>
+              );
             })}
-        </ul>
+          </ul>
+        </Stagger>
       );
     }
   };
